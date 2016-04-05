@@ -8,7 +8,8 @@ app.controller('ButtonController', ['$scope', 'storage', function($scope, storag
     $scope.counter = 0;
 
     $scope.addGrade = function(grade) {
-        storage.addResult(parseInt(grade));
+        //storage.addResult(grade);
+        $scope.counter = $scope.counter+ grade;
     }
 
 }]);
