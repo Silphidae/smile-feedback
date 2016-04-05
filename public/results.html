@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Feedback with a smile!</title>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="js/scripts.js"></script>
+</head>
+
+<body ng-app="SmileyFeedbackApp">
+
+<div class="container" ng-controller="ListController">
+    <p class="topic" >Olette saaneet palautetta seuraavasti:</p>
+
+    <span>Hyviä: {{hyvat()}}</span><br>
+    <span>Neutraaleja: {{neutraalit()}}</span><br>
+    <span>Negatiivisia: {{huonot()}}</span><br>
+
+    <div class="buttons">
+    <a href="index.html">Takaisin kyselyyn</a>
+        </div>
+
+</div>
+
+
+</body>
+</html>

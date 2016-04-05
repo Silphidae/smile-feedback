@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+.topic {
+    padding-top: 100px;
+}
+
+.buttons {
+    padding-top: 50px;
+}
+
+.smiley{
+    width: 250px;
+    height: auto;
+    padding: 25px;
+}
