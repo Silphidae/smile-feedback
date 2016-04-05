@@ -1,0 +1,19 @@
+{
+  "name": "smile-feedback",
+  "version": "1.0.0",
+  "description": "Smile Feedback",
+  "main": "app.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Silphidae/smile-feedback"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Silphidae",
+
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
