@@ -2,60 +2,53 @@
 
 var app = angular.module('SmileyFeedbackApp', []);
 
-app.controller('ButtonController', ['$scope', 'storage', function($scope, storage) {
+app.controller('ButtonController', ['$scope' ,'$http',  function($scope, $http) {
 
-    $scope.addGrade = function(grade) {
-        storage.addResult(grade);
-    }
+    $scope.addGrade = function(grade){
+        $http({method: 'GET', url: '/db/addResult?result='+grade})
+    };
 
 }]);
 
-app.controller('ListController', ['$scope', 'storage', function($scope, storage) {
-    var all = storage.getResults();
+app.controller('ListController', ['$scope' ,'$http',  function($scope, $http) {
 
-    $scope.positive = function() {
-        var count = 0;
-        angular.forEach(all, function (grade) {
-            if (grade == 1) {count++;}
-        }); return count;
+    var one = 0;
+    var two = 0;
+    var three = 0;
+
+    $scope.positive = 0;
+    $scope.neutral = 0;
+    $scope.negative = 0
+
+    $http.get('/db/getResults')
+        .success(function(data) {
+            var json_data = data;
+            var result = [];
+            for(var i in json_data) {
+                result.push(json_data[i].result);
+                if (json_data[i].result == 1) {
+                    one++;
+                }
+                if (json_data[i].result == 2) {
+                    two++;
+                }
+                if (json_data[i].result == 3) {
+                    three++;
+                }
+            }
+            $scope.positive = one;
+            $scope.neutral = two;
+            $scope.negative = three;
+        })
+
+    $scope.deleteAll = function(){
+        $http.get('/db/delResults')
+            .success(function(data) {
+                window.location.reload(true);
+            })
     };
-
-    $scope.neutral = function() {
-        var count = 0;
-        angular.forEach(all, function (grade) {
-            if (grade == 2) {count++;}
-        }); return count;
-    };
-
-    $scope.negative = function() {
-        var count = 0;
-        angular.forEach(all, function (grade) {
-            if (grade == 3) {count++;}
-        }); return count;
-    };
-
-    $scope.deleteAll = function() {
-        storage.deleteResults();
-
-    }
 
 }]);
-
-app.service('storage', function () {
-    var results = [];
-
-    return {
-        getResults: function () {
-            return results;
-        },
-        addResult: function(value) {
-            results.push(value);
-        },
-        deleteResults: function() {
-            results.length = 0;
-        }
-    };
-});
 
 app.directive('ngReallyClick', [function() {
     return {
