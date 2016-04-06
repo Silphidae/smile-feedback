@@ -10,6 +10,5 @@ app.use(function(req, res, next){
   res.status(404).send('Page cannot be found!');
 });
 
-
 //start server
 app.listen(process.env.PORT || 5000);

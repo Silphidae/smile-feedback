@@ -4,22 +4,26 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css" type="text/css" >
     <title>Feedback with a smile!</title>
-    <script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
 </head>
 
 <body ng-app="SmileyFeedbackApp">
 
-<div class="container" ng-controller="ListController">
+<div class="result-list" ng-controller="ListController">
     <p class="topic" >Olette saaneet palautetta seuraavasti:</p>
 
-    <span>Hyviä: {{hyvat()}}</span><br>
-    <span>Neutraaleja: {{neutraalit()}}</span><br>
-    <span>Negatiivisia: {{huonot()}}</span><br>
+    <div class="good">Hyviä: {{positive()}}</div><br>
+    <div class="neutral">Neutraaleja: {{neutral()}}</div><br>
+    <div class="negative">Negatiivisia: {{negative()}}</div><br>
 
     <div class="buttons">
-    <a href="index.html">Takaisin kyselyyn</a>
-        </div>
+        <a href="index.html">Takaisin kyselyyn</a>
+    </div>
+
+    <div class="topic">
+        <button ng-really-message="Haluatko varmasti poistaa kaikki vastaukset?" ng-really-click="deleteAll()">Poista kaikki vastaukset</button>
+    </div>
 
 </div>
 

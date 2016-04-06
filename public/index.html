@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css" type="text/css" >
     <title>Feedback with a smile!</title>
-    <script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
 </head>
 <body ng-app="SmileyFeedbackApp">
@@ -12,18 +12,15 @@
 <div class="container" ng-controller="ButtonController">
     <div class="topic">
         <h1>Anna palautetta painamalla kuvaketta!</h1>
-        <h2>{{results}}, counter: {{counter}}</h2>
     </div>
 
     <div class="buttons">
         <button ng-click="addGrade(1)"><img class="smiley" src="images/happy.png"></button>
-
         <button ng-click="addGrade(2)"><img class="smiley" src="images/dunno.png"></button>
-            <button ng-click="addGrade(3)"><img class="smiley" src="images/sad.png"></button>
+        <button ng-click="addGrade(3)"><img class="smiley" src="images/sad.png"></button>
     </div>
 
 </div>
-
 
 </body>
 </html>
