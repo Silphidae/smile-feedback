@@ -10,6 +10,17 @@ body {
     text-align: center;
 }
 
+.results {
+    margin: 50px;
+    padding-top: 30px;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .topic {
     padding-top: 100px;
     padding-bottom: 5px;
